@@ -2,6 +2,13 @@ import org.scalatest.{ShouldMatchers, FunSpec}
 
 class RationalTest extends FunSpec with ShouldMatchers {
   describe("An rational") {
+
+    it("should throw exception when d is zero") {
+      intercept[IllegalArgumentException] {
+        new Rational(1, 0)
+      }
+    }
+
     it("should normalize") {
       val a = new Rational(3, 6)
 
