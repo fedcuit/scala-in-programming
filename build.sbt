@@ -1,4 +1,4 @@
-name := "Testing Scala"
+name := "scala-in-programming"
 
 version := "1.0"
 
