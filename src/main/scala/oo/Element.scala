@@ -11,3 +11,13 @@ abstract class Element {
 
   def beside(e: Element): Element
 }
+
+object Element {
+  def element(contents: Array[String]): Element = {
+    new ArrayElement(contents)
+  }
+
+  def element(line: String): Element = {
+    new LineElement(line)
+  }
+}
