@@ -3,7 +3,7 @@ package oo
 import org.scalatest.{FunSpec, ShouldMatchers}
 import oo.Element.element
 
-class ArrayElementTest extends FunSpec with ShouldMatchers {
+class ElementTest extends FunSpec with ShouldMatchers {
   describe("Array element") {
     it("should support put another element above it") {
       val ele1 = element(Array("hello", "world"))
