@@ -7,35 +7,35 @@ abstract class Element {
 
   def width: Int = if (height == 0) 0 else contents(0).length // the width of the first element
 
-  def above(e: Element): Element
+  def above(e: Element): Element = {
+    Element.element(this.contents ++ e.contents)
+  }
 
-  def beside(e: Element): Element
+  def beside(e: Element): Element = {
+    Element.element(
+      for (
+        (line1, line2) <- contents zip e.contents
+      ) yield line1 + line2
+    )
+  }
+
+  override def toString = {
+    contents mkString "\n"
+  }
 }
 
 object Element {
 
-  private class ArrayElement(override val contents: Array[String]) extends Element {
-    override def beside(e: Element): Element = {
-      new ArrayElement(
-        for (
-          (line1, line2) <- contents zip e.contents
-        ) yield line1 + line2
-      )
-    }
+  private class ArrayElement(override val contents: Array[String]) extends Element {}
 
-    override def above(e: Element): Element = new ArrayElement(this.contents ++ e.contents)
+  private class LineElement(s: String) extends ArrayElement(Array(s)) {}
 
-    override def toString = {
-      contents mkString "\n"
-    }
+  private class UniformElement(chr: Char, width: Int, height: Int) extends Element {
+    override val contents = Array.fill(height)(chr.toString * width)
   }
 
-  private class LineElement(s: String) extends ArrayElement(Array(s)) {
-    override def height = 1
-
-    override def width = s.length
-  }
-
+  def element(chr: Char, width: Int, height: Int): Element =
+    new UniformElement(chr, width, height)
 
   def element(contents: Array[String]): Element = {
     new ArrayElement(contents)
