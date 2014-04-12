@@ -1,4 +1,6 @@
-class Rational(n: Int, d: Int) {
+class Number
+
+class Rational(n: Int, d: Int) extends Number with Ordered[Rational] {
 
   require(d != 0)
   private val g = gcd(n.abs, d.abs)
@@ -52,5 +54,19 @@ class Rational(n: Int, d: Int) {
   override def hashCode(): Int = {
     val state = Seq(numer, denom)
     state.map(_.hashCode()).foldLeft(0)((a, b) => 31 * a + b)
+  }
+
+  override def compare(that: Rational): Int = {
+    (this.numer * that.denom) - (that.numer * this.denom)
+  }
+}
+
+object Rational {
+  def rational(n: Int, d: Int) = {
+    new Rational(n, d)
+  }
+
+  def rational(n: Int) = {
+    new Rational(n)
   }
 }
