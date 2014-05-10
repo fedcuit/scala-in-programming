@@ -6,4 +6,6 @@ object ListDemo {
   }
 
   def reverseLeft[T](xs: List[T]) = (List[T]() /: xs) { (ys, y) => y :: ys}
+
+  def longestWord(words: Array[String]) = words.toList.zipWithIndex.maxBy(_._1.length)
 }

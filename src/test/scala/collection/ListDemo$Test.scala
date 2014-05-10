@@ -11,5 +11,9 @@ class ListDemo$Test extends FunSpec with ShouldMatchers {
     it("should able to create a multiplication table with tabulate") {
       println(ListDemo.multiTable)
     }
+
+    it("should able to find the longest word") {
+      ListDemo.longestWord("The quick brown fox".split(" ")) should equal(("quick",1))
+    }
   }
 }
