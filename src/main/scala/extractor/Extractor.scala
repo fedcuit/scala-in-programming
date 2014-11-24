@@ -26,7 +26,7 @@ object PremiumUser {
 object Main extends App {
   val user = new FreeUser("efeng", 100, 0.7d)
   user match {
-    case freeUser @ premiumCandidate => println("this is a potential premium user")
+    case freeUser @ premiumCandidate() => println("this is a potential premium user")
     case FreeUser(name, _, p) => println("Hello " + name)
   }
 }
