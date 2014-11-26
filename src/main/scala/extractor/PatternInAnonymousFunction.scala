@@ -57,7 +57,7 @@ object PatternInAnonymousFunctionMain extends App {
       }
 
       override def apply(v1: (String, Int)): String = v1 match {
-        case (w, f) if isDefinedAt(v1)=> w
+        case (w, f) if isDefinedAt(v1) => w
       }
     }
 
