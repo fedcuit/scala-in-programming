@@ -4,7 +4,8 @@ import future.Ingredient._
 import future.QuickCoffeeMachine.prepareCappuccino
 
 import scala.concurrent.ExecutionContext.Implicits.global
-import scala.concurrent.Future
+import scala.concurrent.duration._
+import scala.concurrent.{Await, Future}
 
 object QuickCoffeeMachine {
 
@@ -63,7 +64,13 @@ object QuickCoffeeMachine {
 }
 
 object QuickCoffeeMachineMain extends App {
-  prepareCappuccino().map(cappuccino => println("Your coffee, Sir"))
+  private val cappuccino: Future[Cappuccino] = prepareCappuccino()
 
-  Thread.sleep(5000)
+  // use Await.result to wait until a future is complete and retrieve it's value back
+  //  private val result: Cappuccino = Await.result(cappuccino, 5 seconds)
+  //  println(s"Your $result, Sir")
+
+  // use Await.ready to wait until a future is complete. Both ready and result will result in blocking
+  Await.ready(cappuccino, 5 seconds)
+  cappuccino.map(cappuccino => println(s"Your $cappuccino, Sir"))
 }
