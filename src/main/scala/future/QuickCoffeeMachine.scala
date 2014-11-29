@@ -72,5 +72,5 @@ object QuickCoffeeMachineMain extends App {
 
   // use Await.ready to wait until a future is complete. Both ready and result will result in blocking
   Await.ready(cappuccino, 5 seconds)
-  cappuccino.map(cappuccino => println(s"Your $cappuccino, Sir"))
+  cappuccino map { cappuccino => println(s"Your $cappuccino, Sir")}
 }
