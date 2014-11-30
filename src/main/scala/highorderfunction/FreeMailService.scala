@@ -24,4 +24,11 @@ object FreeMailService extends App {
   println(mails.filter(FiltersV2.notSendByAnyOf(Set("batman"))))
   println(mails.filter(FiltersV2.maximumSize(14)))
   println(mails.filter(FiltersV2.minimumSize(16)))
+
+  println("-" * 80)
+
+  println(mails.filter(FiltersV3.sendByOneOf(Set("batman"))))
+  println(mails.filter(FiltersV3.notSendByAnyOf(Set("batman"))))
+  println(mails.filter(FiltersV3.maximumSize(14)))
+  println(mails.filter(FiltersV3.minimumSize(16)))
 }
