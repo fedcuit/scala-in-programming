@@ -1,5 +1,7 @@
 package highorderfunction
 
+import highorderfunction.Transformer.{addAdvertisementToFooter, addMissingSubject, checkSpelling, removeInappropriateLanguage}
+
 
 object FreeMailService extends App {
   val mails =
@@ -31,4 +33,16 @@ object FreeMailService extends App {
   println(mails.filter(FiltersV3.notSendByAnyOf(Set("batman"))))
   println(mails.filter(FiltersV3.maximumSize(14)))
   println(mails.filter(FiltersV3.minimumSize(16)))
+
+  println("-" * 80)
+  val mail = Email("", "your dynamic typing is good", "edfeng", "anyone")
+  private val pipeline: (Email) => Email = Function.chain(Seq(
+    addMissingSubject,
+    checkSpelling,
+    removeInappropriateLanguage,
+    addAdvertisementToFooter))
+  println(pipeline(mail))
+
+  val funcChain = addMissingSubject andThen checkSpelling andThen removeInappropriateLanguage andThen addAdvertisementToFooter
+  println(funcChain(mail))
 }
