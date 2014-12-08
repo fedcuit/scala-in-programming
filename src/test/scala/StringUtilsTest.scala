@@ -1,3 +1,4 @@
+import collection.StringUtils
 import org.scalatest.{ShouldMatchers, FunSpec}
 
 class StringUtilsTest extends FunSpec with ShouldMatchers {

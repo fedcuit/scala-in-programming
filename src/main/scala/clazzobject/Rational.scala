@@ -1,3 +1,5 @@
+package clazzobject
+
 class Number
 
 class Rational(n: Int, d: Int) extends Number with Ordered[Rational] {

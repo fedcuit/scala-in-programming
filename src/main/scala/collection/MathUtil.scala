@@ -1,3 +1,5 @@
+package collection
+
 object MathUtil {
 
   def makeRow(i: Int): String = {

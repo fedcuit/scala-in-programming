@@ -1,3 +1,4 @@
+import clazzobject.Rational
 import org.scalatest.{ShouldMatchers, FunSpec}
 import Rational.rational
 

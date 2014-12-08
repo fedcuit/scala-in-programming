@@ -1,3 +1,4 @@
+import highorderfunction.FileMatcher
 import org.scalatest.{BeforeAndAfter, ShouldMatchers, FunSpec}
 
 class FileMatcherTest extends FunSpec with ShouldMatchers with BeforeAndAfter {

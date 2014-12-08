@@ -1,3 +1,5 @@
+package highorderfunction
+
 class FileMatcher(fileList: Array[String]) {
   def filesRegex(s: String): Array[String] = filesMatching(_.matches(s))
 

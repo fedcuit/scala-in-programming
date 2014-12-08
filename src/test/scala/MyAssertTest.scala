@@ -1,3 +1,4 @@
+import callbyname.MyAssert
 import org.scalatest.{ShouldMatchers, FunSpec}
 
 class MyAssertTest extends FunSpec with ShouldMatchers {

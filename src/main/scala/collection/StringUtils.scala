@@ -1,3 +1,5 @@
+package collection
+
 object StringUtils {
   def paddingRight(s: String, i: Int): String = {
     val padding = i - s.length

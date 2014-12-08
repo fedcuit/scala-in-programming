@@ -1,3 +1,4 @@
+import collection.MathUtil
 import org.scalatest.{ShouldMatchers, FunSpec}
 
 class MathUtilTest extends FunSpec with ShouldMatchers {
